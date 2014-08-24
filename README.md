@@ -1,6 +1,5 @@
-zabbix-gluster
+Zabbix template for monitoring Gluster nodes.
 ==============
-#Zabbix template for monitoring Gluster nodes.
 
 ###Monitored items
 
