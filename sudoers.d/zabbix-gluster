@@ -1,0 +1,4 @@
+Cmnd_Alias GLUSTER = /usr/sbin/gluster
+zabbix ALL = NOPASSWD: GLUSTER
+
+Defaults: zabbix !requiretty
