@@ -8,12 +8,13 @@ Zabbix template for monitoring Gluster nodes.
 - Selfheal daemon
 - Number of offline peers
 - Glusterd TCP port
-
+- Total number of unhealed entries
+- Number of split-brain entries
 
 ###Installation
 (Assumes Centos 6, on other distros may vary)
 
-- Put sudoers.d/zabbix-gluster into /etc/sudoers.d
-- Put zabbix_agentd.conf.d/userparameters-gluster.conf into /etc/zabbix_agentd.conf.d
+- Copy etc contents to /etc
+- Copy opt contents to /opt
 - Import template_app_gluster.xml into Zabbix
-- Assign template to relevant hosts
+- Assign the template to the relevant hosts
