@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2014-08-24T04:13:54Z</date>
+    <date>2014-09-12T15:36:31Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -22,6 +22,48 @@
                 </application>
             </applications>
             <items>
+                <item>
+                    <name>Heal total number of entries</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>gluster.heal_total</key>
+                    <delay>120</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Gluster</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
                 <item>
                     <name>Number of offline bricks</name>
                     <type>0</type>
@@ -65,7 +107,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Number of offline NFS daemons</name>
+                    <name>Number of offline NFS daemons on localhost</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -191,6 +233,48 @@
                     <valuemap/>
                 </item>
                 <item>
+                    <name>Split-brain number of entries</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>gluster.split_brain</key>
+                    <delay>120</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Gluster</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>TCP port of glusterd</name>
                     <type>0</type>
                     <snmp_community/>
@@ -246,6 +330,16 @@
     </templates>
     <triggers>
         <trigger>
+            <expression>{Template App Gluster:gluster.heal_total.str(OK)}=0</expression>
+            <name>Gluster heal pending on {HOSTNAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
             <expression>{Template App Gluster:gluster.offline_nfs.last()}#0</expression>
             <name>Gluster NFS offline on {HOSTNAME}</name>
             <url/>
@@ -292,6 +386,16 @@
             <status>0</status>
             <priority>3</priority>
             <description>Gluster service is down on {HOSTNAME}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template App Gluster:gluster.split_brain.str(OK)}=0</expression>
+            <name>Gluster split-brain on {HOSTNAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
             <type>0</type>
             <dependencies/>
         </trigger>
