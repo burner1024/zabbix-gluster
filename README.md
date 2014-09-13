@@ -1,5 +1,6 @@
 Zabbix template for monitoring Gluster nodes.
 ==============
+Tested with Gluster 3.5.2
 
 ###Monitored items
 
