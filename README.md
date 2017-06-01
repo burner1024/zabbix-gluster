@@ -2,7 +2,7 @@ Zabbix template for monitoring Gluster nodes.
 ==============
 Tested with Gluster 3.5.2
 
-###Monitored items
+## Monitored items
 
 - Number of offline bricks
 - Gluster NFS server
@@ -12,7 +12,7 @@ Tested with Gluster 3.5.2
 - Total number of unhealed entries
 - Number of split-brain entries
 
-###Installation
+## Installation
 (Assumes Centos 6, on other distros may vary)
 
 - Copy etc contents to /etc
