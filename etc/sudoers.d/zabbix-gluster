@@ -1,4 +1,7 @@
+# Allow to execute privilege command by zabbix user for gluster
 Cmnd_Alias GLUSTER = /usr/sbin/gluster
+Cmnd_Alias GLUSTER_SCRIPTS = /usr/libexec/gluster_checkvolstatus.pl, /usr/libexec/gluster_numpeers.pl, /usr/libexec/gluster_uuid.pl, /usr/libexec/gluster_volstatus.pl, /usr/libexec/gluster_voltype.pl, /usr/libexec/gluster_offline_bricks.sh, /usr/libexec/gluster_offline_peers.sh, /usr/libexec/gluster_offline_nfs.sh
 zabbix ALL = NOPASSWD: GLUSTER
+zabbix ALL = NOPASSWD: GLUSTER_SCRIPTS
 
 Defaults: zabbix !requiretty
